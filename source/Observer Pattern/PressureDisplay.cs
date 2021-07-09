@@ -13,9 +13,9 @@ namespace Observer_Pattern
             _weatherData.RegisterObserver(this);
         }
 
-        public void Update(float temperature, float humidity, float pressure)
+        public void Update()
         {
-            _pressure = pressure;
+            _pressure = _weatherData.Pressure;
             Display();
         }
 

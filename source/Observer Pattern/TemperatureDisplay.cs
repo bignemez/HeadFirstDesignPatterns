@@ -4,8 +4,8 @@ namespace Observer_Pattern
 {
     public class TemperatureDisplay : IWeatherDataObserver, IDisplayElement
     {
-        private float       _temperature;
-        private WeatherData _weatherData;
+        private          float       _temperature;
+        private readonly WeatherData _weatherData;
 
         public TemperatureDisplay(WeatherData weatherData)
         {
@@ -13,15 +13,15 @@ namespace Observer_Pattern
             _weatherData.RegisterObserver(this);
         }
 
-        public void Update(float temperature, float humidity, float pressure)
-        {
-            _temperature = temperature;
-            Display();
-        }
-
         public void Display()
         {
             Console.WriteLine(_temperature);
+        }
+
+        public void Update()
+        {
+            _temperature = _weatherData.Temperature;
+            Display();
         }
     }
 }

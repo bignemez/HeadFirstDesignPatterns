@@ -33,7 +33,7 @@ namespace Observer_Pattern
 
         public void NotifyObserver()
         {
-            _weatherDataObservers?.ForEach(observer => observer.Update(Temperature, Humidity, Pressure));
+            _weatherDataObservers?.ForEach(observer => observer.Update());
         }
 
         public void SetMeasurements(float temperature, float humidity, float pressure)

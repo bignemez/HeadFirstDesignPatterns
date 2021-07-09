@@ -5,7 +5,6 @@ namespace Observer_Pattern
     public class HeatIndexDisplay : IWeatherDataObserver, IDisplayElement
     {
         private float       _temperature;
-        private float       _pressure;
         private float       _humidity;
         private WeatherData _weatherData;
 
@@ -15,11 +14,10 @@ namespace Observer_Pattern
             _weatherData.RegisterObserver(this);
         }
 
-        public void Update(float temperature, float humidity, float pressure)
+        public void Update()
         {
-            _temperature = temperature;
-            _humidity    = humidity;
-            _pressure    = pressure;
+            _temperature = _weatherData.Temperature;
+            _humidity    = _weatherData.Humidity;
             Display();
         }
 
